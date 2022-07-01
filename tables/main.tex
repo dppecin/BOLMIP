@@ -1,0 +1,355 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+
+%%\OneAndAHalfSpacedXI
+\OneAndAHalfSpacedXII % current default line spacing
+%\DoubleSpacedXII
+%%\DoubleSpacedXI
+
+% If hyperref is used, dvi-to-ps driver of choice must be declared as
+%   an additional option to the \documentclass. For example
+%\documentclass[dvips,ijoc]{informs3}      % if dvips is used
+%\documentclass[dvipsone,ijoc]{informs3}   % if dvipsone is used, etc.
+
+% Private macros here (check that there is no clash with the style)
+
+% Natbib setup for author-year style
+\usepackage{natbib}
+  \bibpunct[, ]{(}{)}{,}{a}{}{,}%
+  \def\bibfont{\small}%
+  \def\bibsep{\smallskipamount}%
+  \def\bibhang{24pt}%
+  \def\newblock{\ }%
+  \def\BIBand{and}%
+
+\usepackage{amsmath,amssymb} 
+\def\real{\mathbb{R}}
+\def\R{\real}
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\lexmin{\text{lexmin}}
+\def\argmin{\text{argmin}}
+
+%\usepackage{algorithm2e}
+\usepackage{algorithm}
+\usepackage{algcompatible}
+\usepackage{xcolor}
+%\usepackage{pst-all}
+%\usepackage{auto-pst-pdf}
+\usepackage{tikz}
+\usepackage{subcaption}
+\usepackage{pdflscape}
+
+\usepackage{multirow}
+
+\usepackage{ulem}
+
+\newcommand{\MS}[1]{\begin{color}{red}{#1}\end{color}}
+\newcommand{\NB}[1]{\begin{color}{purple}{#1}\end{color}}
+
+%\makeatletter
+%\def\BState{\State\hskip-\ALG@thistlm}
+%\makeatother
+%\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+%\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+%% Setup of theorem styles. Outcomment only one. 
+%% Preferred default is the first option.
+\TheoremsNumberedThrough % Preferred (Theorem 1, Lemma 1, Theorem 2)
+% \def\TheoremsNumberedThrough{%
+%     \theoremstyle{TH}%
+%     \newtheorem{theorem}{Theorem}
+%     \newtheorem{lemma}{Lemma}
+%     \newtheorem{proposition}{Proposition}
+%     \newtheorem{corollary}{Corollary}
+%     \newtheorem{claim}{Claim}
+%     \newtheorem{conjecture}{Conjecture}
+%     \newtheorem{hypothesis}{Hypothesis}
+%     \newtheorem{assumption}{Assumption}
+%     \theoremstyle{EX}
+%     \newtheorem{remark}{Remark}
+%     \newtheorem{example}{Example}
+%     \newtheorem{problem}{Problem}
+%     \newtheorem{definition}{Definition}
+%     \newtheorem{question}{Question}
+%     \newtheorem{answer}{Answer}
+%     \newtheorem{exercise}{Exercise}
+% }
+
+%\TheoremsNumberedByChapter  % (Theorem 1.1, Lema 1.1, Theorem 1.2)
+
+%% Setup of the equation numbering system. Outcomment only one.
+%% Preferred default is the first option.
+\EquationsNumberedThrough    % Default: (1), (2), ...
+%\EquationsNumberedBySection % (1.1), (1.2), ...
+
+% In the reviewing and copyediting stage enter the manuscript number.
+%\MANUSCRIPTNO{} % When the article is logged in and DOI assigned to it,
+                 %   this manuscript number is no longer necessary
+
+
+\title{Computational Results for BOMIP}
+%\author{Diego Pecin}
+\date{10-12-2018}
+
+\begin{document}
+
+\maketitle
+
+\begin{table}[htb]
+	\scriptsize
+	\centering
+	
+	\setlength{\tabcolsep}{0.8pt}
+	\begin{tabular}{l|c|rr|rrr|rrrrrr|rrr}
+		
+		\noalign{\smallskip}
+		\firsthline
+		\noalign{\smallskip}
+		
+		\textbf{Algorithm} & \textbf{Instance} & \multicolumn{1}{c}{\textbf{nNDP}} & \multicolumn{1}{c|}{\textbf{nIPF}} 
+		
+		& \multicolumn{1}{c}{\textbf{TT}} & \multicolumn{1}{c}{\textbf{IPT}} & \multicolumn{1}{c|}{\textbf{LPT}} &  \multicolumn{1}{c}{\textbf{nIP}} & \multicolumn{1}{c}{\textbf{nLex}} & \multicolumn{1}{c}{\textbf{RLIP}} & \multicolumn{1}{c}{\textbf{nScal}} & \multicolumn{1}{c}{\textbf{nGood}}
+		
+		& \multicolumn{1}{c|}{\textbf{nLP}} & \multicolumn{1}{c}{\textbf{nBox}} &  \multicolumn{1}{c}{\textbf{nSIS}} & \multicolumn{1}{c}{\textbf{nZL}}  \\ \hline
+		
+	
+\hline
+$\epsilon$TM & 21 & 15636 & 295 & 10050.9 & 7540.9 & 2505.9 &  15923 & 43 & 15837 & 0 & 0 & 86952 & 1 & 0 & 0 \\
+& 22 & 18825 & 410 & 12925.5 & 10011.8 & 2909.0 &  19205 & 24 & 19157 & 0 & 0 & 98130 & 1 & 0 & 0 \\
+& 23 & 16420 & 343 & 11192.4 & 8264.4 & 2923.6 &  16752 & 25 & 16702 & 0 & 0 & 102407 & 1 & 0 & 0 \\
+& 24 & 18471 & 457 & 13834.5 & 10859.3 & 2971.3 &  18968 & 36 & 18896 & 0 & 0 & 101213 & 1 & 0 & 0 \\
+& 25 & 13216 & 337 & 8365.9 & 6085.1 & 2278.0 &  13518 & 21 & 13476 & 0 & 0 & 79127 & 1 & 0 & 0 \\
+
+\hline
+$\epsilon$TM-PWL & 21 & 15636 & 295 & 3370.1 & 871.1 & 2495.5 &  634 & 43 & 548 & 0 & 0 & 86952 & 1 & 0 & 0  \\
+& 22 & 18825 & 410 & 4114.2 & 1056.6 & 3053.7 &  846 & 24 & 798 & 0 & 0 & 98130 & 1 & 0 & 0  \\
+& 23 & 16420 & 343 & 4062.1 & 1051.5 & 3006.4 &  715 & 25 & 665 & 0 & 0 & 102407 & 1 & 0 & 0  \\
+& 24 & 18507 & 460 & 4829.1 & 1726.5 & 3098.6 &  1178 & 36 & 1106 & 0 & 0 & 101944 & 1 & 0 & 0 \\
+& 25 & 13216 & 337 & 3202.3 & 877.1 & 2322.6 &  697 & 21 & 655 & 0 & 0 & 79127 & 1 & 0 & 0  \\
+
+\hline
+BLM-Recursive & 21 & 15725 & 294 & 6462.0 & 5014.4 & 1446.4 &  6552 & 1374 & 0 & 2737 & 1067 & 45193 & 2427 & 1067 & 1353 \\
+& 22 & 18856 & 410 & 7820.4 & 6093.7 & 1725.4 &  8221 & 1772 & 0 & 3292 & 1385 & 53663 & 3123 & 1385 & 1716 \\
+& 23 & 16463 & 343 & 7201.1 & 5595.2 & 1604.6 &  7097 & 1498 & 0 & 2959 & 1142 & 47527 & 2626 & 1142 & 1475 \\
+& 24 & 18563 & 460 & 9512.4 & 7625.7 & 1885.2 &  9635 & 2063 & 0 & 3937 & 1572 & 57480 & 3621 & 1572 & 2069 \\
+& 25 & 13248 & 337 & 5482.0 & 4261.4 & 1219.5 &  6417 & 1311 & 0 & 2786 & 1009 & 39407 & 2288 & 1009 & 1256 \\
+
+\hline
+\textsc{PureLex} & 21 & 15685 & 294 & 7025.3 & 5649.8 & 1374.2 &  7918 & 1598 & 3493 & 0 & 1229 & 41643 & 2813 & 1229 & 1577 \\
+& 22 & 18824 & 410 & 8933.6 & 7287.5 & 1644.4 &  10126 & 2046 & 4463 & 0 & 1571 & 49956 & 3583 & 1571 & 1990 \\
+& 23 & 16439 & 343 & 7951.3 & 6382.1 & 1567.7 &  8656 & 1737 & 3859 & 0 & 1323 & 43878 & 3047 & 1323 & 1714 \\
+& 24 & 18526 & 460 & 11859.4 & 10033.4 & 1824.1 &  12708 & 2464 & 5816 & 0 & 1964 & 54459 & 4414 & 1964 & 2515 \\
+& 25 & 13230 & 337 & 5970.9 & 4832.2 & 1137.4 &  7604 & 1533 & 3351 & 0 & 1187 & 35526 & 2688 & 1187 & 1478 \\
+
+\hline
+\textsc{SpureLex}-0.05 & 21 & 15642 & 295 & 9573.2 & 7148.8 & 2420.7 &  15995 & 59 & 15877 & 0 & 0 & 80734 & 34 & 0 & 16 \\
+& 22 & 18827 & 410 & 12466.7 & 9660.5 & 2802.4 &  19272 & 41 & 19190 & 0 & 0 & 90902 & 34 & 0 & 15 \\
+& 23 & 16417 & 343 & 10969.1 & 8002.6 & 2962.7 &  16810 & 40 & 16730 & 0 & 0 & 92598 & 32 & 0 & 15 \\
+& 24 & 18472 & 457 & 13252.1 & 10318.1 & 2930.0 &  19036 & 52 & 18932 & 0 & 0 & 95781 & 34 & 0 & 16 \\
+& 25 & 13217 & 337 & 8118.8 & 5958.3 & 2157.5 &  13580 & 36 & 13508 & 0 & 0 & 72417 & 32 & 0 & 15 \\
+\hline
+
+\textsc{SpureLex-PWL}-0.05 & 21 & 15642 & 295 & 3476.5 & 879.7 & 2594.0 &  731 & 59 & 613 & 0 & 0 & 80734 & 34 & 0 & 16 \\
+& 22 & 18827 & 410 & 4058.9 & 1061.2 & 2994.6 &  941 & 41 & 859 & 0 & 0 & 90902 & 34 & 0 & 15 \\
+& 23 & 16417 & 343 & 4130.8 & 1021.5 & 3106.1 &  805 & 40 & 725 & 0 & 0 & 92598 & 32 & 0 & 15 \\
+& 24 & 18507 & 460 & 4755.5 & 1690.3 & 3061.3 &  1275 & 52 & 1171 & 0 & 0 & 96460 & 34 & 0 & 16 \\
+& 25 & 13217 & 337 & 3209.4 & 865.6 & 2341.3 &  787 & 36 & 715 & 0 & 0 & 72417 & 32 & 0 & 15 \\
+
+\hline
+\textsc{SpureLex}-0.005 & 21 & 15652 & 295 & 8964.6 & 7585.0 & 1376.3 &  16046 & 196 & 15642 & 0 & 12 & 44467 & 295 & 12 & 148 \\
+                        & 22 & 18812 & 410 & 11837.0 & 9953.2 & 1880.0 &  19618 & 177 & 19262 & 0 & 2 & 61637 & 298 & 2 & 145 \\
+                        & 23 & 16428 & 343 & 10100.1 & 8397.5 & 1699.1 &  17145 & 166 & 16811 & 0 & 2 & 50220 & 280 & 2 & 139 \\
+                        & 24 & 18457 & 457 & 12841.0 & 10829.5 & 2007.5 &  19234 & 191 & 18845 & 0 & 7 & 62806 & 298 & 7 & 147 \\
+                        & 25 & 13216 & 337 & 7370.1 & 6090.6 & 1276.7 &  13839 & 172 & 13487 & 0 & 8 & 43122 & 287 & 8 & 139 \\
+\hline
+
+\textsc{SPureLex-PWL}-0.005  & 21 & 15652 & 295 & 2701.0 & 1193.9 & 1505.2 &  1522 & 196 & 1118 & 0 & 12 & 44467 & 295 & 12 & 148 \\
+                              & 22 & 18812 & 410 & 3460.2 & 1430.1 & 2027.7 &  1731 & 177 & 1375 & 0 & 2 & 61637 & 298 & 2 & 145 \\
+                              & 23 & 16428 & 343 & 3159.2 & 1296.0 & 1861.1 &  1550 & 166 & 1216 & 0 & 2 & 50220 & 280 & 2 & 139 \\
+                              & 24 & 18482 & 460 & 4216.2 & 1961.6 & 2251.8 &  2056 & 191 & 1667 & 0 & 7 & 63157 & 298 & 7 & 147 \\
+                              & 25 & 13216 & 337 & 2586.3 & 1146.8 & 1437.8 &  1554 & 172 & 1202 & 0 & 8 & 43122 & 287 & 8 & 139 \\
+\hline
+
+		\noalign{\smallskip}
+        \lasthline
+        
+	\end{tabular}
+	
+	\caption{Reults for Historical intances}
+\end{table}
+
+
+
+\begin{table}[htb]
+	\scriptsize
+	\centering
+	
+	\setlength{\tabcolsep}{0.8pt}
+	\begin{tabular}{l|c|rr|rrr|rrrrrr|rrr}
+		
+		\noalign{\smallskip}
+		\firsthline
+		\noalign{\smallskip}
+		
+		\textbf{Algorithm} & \textbf{Instance} & \multicolumn{1}{c}{\textbf{nNDP}} & \multicolumn{1}{c|}{\textbf{nIPF}} 
+		
+		& \multicolumn{1}{c}{\textbf{TT}} & \multicolumn{1}{c}{\textbf{IPT}} & \multicolumn{1}{c|}{\textbf{LPT}} &  \multicolumn{1}{c}{\textbf{nIP}} & \multicolumn{1}{c}{\textbf{nLex}} & \multicolumn{1}{c}{\textbf{RLIP}} & \multicolumn{1}{c}{\textbf{nScal}} & \multicolumn{1}{c}{\textbf{nGood}}
+		
+		& \multicolumn{1}{c|}{\textbf{nLP}} & \multicolumn{1}{c}{\textbf{nBox}} &  \multicolumn{1}{c}{\textbf{nSIS}} & \multicolumn{1}{c}{\textbf{nZL}}  \\ \hline
+		
+\hline
+$\epsilon$TM & A & 22502 & 7501 & 36296.0 & 35481.4 & 675.1 &  37141 & 369 & 36403 & 0 & 0 & 36403 & 1 & 0 & 0 \\
+& B & 22508 & 7501 & 36222.6 & 35415.6 & 669.5 &  37138 & 382 & 36374 & 0 & 0 & 36365 & 1 & 0 & 0 \\
+& C & 22506 & 7501 & 36086.3 & 35286.2 & 663.6 &  37138 & 381 & 36376 & 0 & 0 & 36370 & 1 & 0 & 0 \\
+\hline
+
+$\epsilon$TM-PWL & A & 22501 & 7501 & 58944.1 & 58124.7 & 668.2 &  30010 & 369 & 29272 & 0 & 0 & 36403 & 1 & 0 & 0 \\
+& B & 22500 & 7501 & 59383.5 & 58563.4 & 670.1 &  30013 & 382 & 29249 & 0 & 0 & 36365 & 1 & 0 & 0 \\
+& C & 22502 & 7501 & 59776.6 & 58910.1 & 710.7 &  30011 & 381 & 29249 & 0 & 0 & 36370 & 1 & 0 & 0 \\
+
+\hline
+BLM-Recursive & A & 22502 & 7501 & 6101.1 & 3265.4 & 2648.3 &  44513 & 5303 & 0 & 33907 & 0 & 110266 & 5275 & 1 & 5249 \\
+& B & 22502 & 7501 & 5898.9 & 3088.8 & 2623.6 &  44530 & 5381 & 0 & 33768 & 0 & 110205 & 5343 & 1 & 5307 \\
+& C & 22504 & 7501 & 5778.7 & 3004.2 & 2589.2 &  44493 & 5259 & 0 & 33975 & 0 & 110033 & 5228 & 1 & 5199 \\
+
+\hline
+\textsc{PureLex} & A  & 22502 & 7501 & 5600.5 & 2667.8 & 2727.5 &  116515 & 21896 & 72723 & 0 & 0 & 115994 & 21834 & 7954 & 21766 \\
+& B  & 22502 & 7501 & 5590.9 & 2661.6 & 2722.4 &  116357 & 21850 & 72657 & 0 & 0 & 115849 & 21797 & 7939 & 21742 \\
+& C  & 22502 & 7501 & 5603.5 & 2663.7 & 2732.3 &  116375 & 21849 & 72677 & 0 & 0 & 115879 & 21797 & 7960 & 21747 \\
+
+\hline
+\textsc{SpureLex}-0.05 & A & 22502 & 7501 & 1927.4 & 1058.6 & 761.9 &  37273 & 391 & 36491 & 0 & 0 & 36573 & 46 & 7 & 22 \\
+& B & 22502 & 7501 & 1963.7 & 1074.7 & 778.2 &  37257 & 404 & 36449 & 0 & 0 & 36532 & 46 & 7 & 22 \\
+& C & 22502 & 7501 & 1939.4 & 1063.4 & 765.3 &  37256 & 404 & 36448 & 0 & 0 & 36527 & 46 & 7 & 20 \\
+\hline
+
+\textsc{SpureLex-PWL}-0.05 & A & 22502 & 7501 & 2211.3 & 1310.1 & 777.9 &  30149 & 391 & 29367 & 0 & 0 & 36573 & 46 & 7 & 22 \\
+& B & 22502 & 7501 & 2229.7 & 1323.5 & 784.6 &  30146 & 404 & 29338 & 0 & 0 & 36532 & 46 & 7 & 22 \\
+& C & 22502 & 7501 & 2178.0 & 1299.2 & 758.0 &  30142 & 404 & 29334 & 0 & 0 & 36527 & 46 & 7 & 20 \\
+
+\hline
+\textsc{SpureLex}-0.005 & A & 22502 & 7501 & 1790.9 & 865.2 & 821.7 &  38357 & 583 & 37191 & 0 & 0 & 38084 & 434 & 40 & 213 \\
+& B & 22502 & 7501 & 1782.6 & 863.7 & 816.3 &  38353 & 594 & 37165 & 0 & 0 & 38042 & 434 & 42 & 215 \\
+& C & 22502 & 7501 & 1786.6 & 866.0 & 813.1 &  38354 & 597 & 37160 & 0 & 0 & 38032 & 434 & 46 & 211 \\
+\hline
+
+\textsc{SPureLex-PWL}-0.005 & A & 22502 & 7501 & 1832.3 & 904.3 & 810.0 &  31343 & 583 & 30177 & 0 & 0 & 38084 & 434 & 40 & 213 \\
+& B & 22502 & 7501 & 1820.3 & 901.0 & 804.3 &  31351 & 594 & 30163 & 0 & 0 & 38042 & 434 & 42 & 215 \\
+& C & 22502 & 7501 & 1837.8 & 909.7 & 810.4 &  31346 & 597 & 30152 & 0 & 0 & 38032 & 434 & 46 & 211 \\
+\hline
+		\noalign{\smallskip}
+        \lasthline
+        
+	\end{tabular}
+	
+	\caption{Reults for Rand intances}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{table}[htb]
+	\scriptsize
+	\centering
+	
+	\setlength{\tabcolsep}{0.8pt}
+	\begin{tabular}{l|c|rr|rrr|rrrrrr|rrr}
+		
+		\noalign{\smallskip}
+		\firsthline
+		\noalign{\smallskip}
+		
+		\textbf{Algorithm} & \textbf{Instance} & \multicolumn{1}{c}{\textbf{nNDP}} & \multicolumn{1}{c|}{\textbf{nIPF}} 
+		
+		& \multicolumn{1}{c}{\textbf{TT}} & \multicolumn{1}{c}{\textbf{IPT}} & \multicolumn{1}{c|}{\textbf{LPT}} &  \multicolumn{1}{c}{\textbf{nIP}} & \multicolumn{1}{c}{\textbf{nLex}} & \multicolumn{1}{c}{\textbf{RLIP}} & \multicolumn{1}{c}{\textbf{nScal}} & \multicolumn{1}{c}{\textbf{nGood}}
+		
+		& \multicolumn{1}{c|}{\textbf{nLP}} & \multicolumn{1}{c}{\textbf{nBox}} &  \multicolumn{1}{c}{\textbf{nSIS}} & \multicolumn{1}{c}{\textbf{nZL}}  \\ \hline
+		
+\hline
+$\epsilon$TM & 1000.A & 3003 & 1001 & 101.8 & 84.7 & 15.0 &  4956 & 54 & 4848 & 0 & 0 & 4849 & 1 & 0 & 0 \\
+& 1500.A & 4503 & 1501 & 251.4 & 215.0 & 31.8 &  7434 & 77 & 7280 & 0 & 0 & 7281 & 1 & 0 & 0 \\
+& 2000.A & 6003 & 2001 & 508.9 & 445.5 & 55.1 &  9896 & 114 & 9668 & 0 & 0 & 9669 & 1 & 0 & 0 \\
+& 5000.A & 15003 & 5001 & 6004.5 & 5605.0 & 339.9 &  24772 & 239 & 24294 & 0 & 0 & 24295 & 1 & 0 & 0 \\
+& 7500.A & 22502 & 7501 & 18920.8 & 18058.4 & 716.8 &  37142 & 370 & 36402 & 0 & 0 & 36403 & 1 & 0 & 0 \\
+& 10000.A & 30004 & 10001 & 42413.0 & 40947.7 & 1189.7 &  49528 & 490 & 48548 & 0 & 0 & 48546 & 1 & 0 & 0 \\
+\hline
+
+$\epsilon$TM-PWL & 1000.A & 3003 & 1001 & 232.2 & 214.5 & 15.3 &  4007 & 54 & 3899 & 0 & 0 & 4849 & 1 & 0 & 0 \\
+& 1500.A & 4503 & 1501 & 649.4 & 611.8 & 32.4 &  6008 & 77 & 5854 & 0 & 0 & 7281 & 1 & 0 & 0 \\
+& 2000.A & 6003 & 2001 & 1522.5 & 1457.0 & 55.6 &  8007 & 114 & 7779 & 0 & 0 & 9669 & 1 & 0 & 0 \\
+& 5000.A & 15003 & 5001 & 21483.9 & 21105.3 & 315.4 &  20056 & 239 & 19578 & 0 & 0 & 24295 & 1 & 0 & 0 \\
+& 7500.A & 22502 & 7501 & 60424.9 & 59557.6 & 707.7 &  30009 & 370 & 29269 & 0 & 0 & 36403 & 1 & 0 & 0 \\
+& 10000.A & 29996 & 10001 & 145835.9 & 144329.0 & 1205.9 &  40014 & 490 & 39034 & 0 & 0 & 48546 & 1 & 0 & 0 \\
+
+\hline
+BLM-Recursive & 1000.A & 3003 & 1001 & 385.3 & 331.1 & 50.6 &  5919 & 999 & 0 & 3921 & 0 & 14050 & 997 & 2 & 997 \\
+& 1500.A & 4503 & 1501 & 1690.2 & 1571.4 & 110.4 &  8874 & 1487 & 0 & 5900 & 0 & 21072 & 1485 & 2 & 1485 \\
+& 2000.A & 6004 & 2001 & 4638.5 & 4428.2 & 194.8 &  11803 & 1997 & 0 & 7809 & 0 & 28053 & 1995 & 2 & 1995 \\
+& 5000.A & 15003 & 5001 & 84915.2 & 83826.7 & 986.1 &  29559 & 4996 & 0 & 19567 & 0 & 69979 & 4994 & 2 & 4994 \\
+
+\hline
+\textsc{PureLex} & 1000.A & 3003 & 1001 & 118.4 & 55.5 & 59.1 &  15489 & 2901 & 9687 & 0 & 0 & 15439 & 2898 & 1029 & 2897 \\
+& 1500.A & 4503 & 1501 & 251.1 & 118.6 & 124.3 &  23342 & 4405 & 14532 & 0 & 0 & 23193 & 4378 & 1964 & 4353 \\
+& 2000.A & 6003 & 2001 & 427.8 & 201.9 & 211.5 &  30890 & 5781 & 19328 & 0 & 0 & 30789 & 5779 & 2043 & 5777 \\
+& 5000.A & 15003 & 5001 & 2539.1 & 1199.5 & 1248.6 &  77607 & 14620 & 48367 & 0 & 0 & 77499 & 14578 & 5875 & 14532 \\
+& 7500.A & 22502 & 7501 & 5764.6 & 2701.7 & 2856.4 &  116393 & 21830 & 72733 & 0 & 0 & 115969 & 21798 & 8512 & 21760 \\
+& 10000.A & 30002 & 10001 & 9681.7 & 4527.0 & 4810.1 &  155070 & 29202 & 96666 & 0 & 0 & 154872 & 29126 & 11660 & 29044 \\
+
+\hline
+\textsc{SpureLex}-0.05 & 1000.A & 3003 & 1001 & 39.6 & 21.4 & 16.3 &  5074 & 73 & 4928 & 0 & 0 & 5006 & 44 & 5 & 21 \\
+& 1500.A & 4503 & 1501 & 86.3 & 46.1 & 36.0 &  7562 & 98 & 7366 & 0 & 0 & 7450 & 46 & 8 & 22 \\
+& 2000.A & 6003 & 2001 & 145.3 & 78.7 & 59.4 &  10022 & 136 & 9750 & 0 & 0 & 9834 & 46 & 7 & 21 \\
+& 5000.A & 15003 & 5001 & 883.8 & 482.1 & 355.9 &  24901 & 261 & 24379 & 0 & 0 & 24464 & 46 & 5 & 22 \\
+& 7500.A & 22502 & 7501 & 2000.3 & 1088.5 & 801.2 &  37274 & 392 & 36490 & 0 & 0 & 36569 & 46 & 7 & 22 \\
+& 10000.A & 30002 & 10001 & 3485.3 & 1902.5 & 1389.1 &  49652 & 511 & 48630 & 0 & 0 & 48718 & 46 & 6 & 22 \\
+\hline
+
+\textsc{SpureLex-PWL}-0.05 & 1000.A & 3003 & 1001 & 44.2 & 25.8 & 16.2 &  4136 & 73 & 3990 & 0 & 0 & 5006 & 44 & 5 & 21 \\
+& 1500.A & 4503 & 1501 & 92.7 & 54.0 & 34.2 &  6141 & 98 & 5945 & 0 & 0 & 7450 & 46 & 8 & 22 \\ 
+& 2000.A & 6003 & 2001 & 165.8 & 96.9 & 60.5 &  8139 & 136 & 7867 & 0 & 0 & 9834 & 46 & 7 & 21 \\
+& 5000.A & 15003 & 5001 & 991.3 & 588.6 & 351.1 &  20150 & 261 & 19628 & 0 & 0 & 24464 & 46 & 5 & 22 \\
+& 7500.A & 22502 & 7501 & 2249.3 & 1324.8 & 799.6 &  30151 & 392 & 29367 & 0 & 0 & 36569 & 46 & 7 & 22 \\
+& 10000.A & 30002 & 10001 & 3870.2 & 2291.8 & 1365.1 &  40147 & 511 & 39125 & 0 & 0 & 48718 & 46 & 6 & 22 \\
+
+\hline
+\textsc{SpureLex}-0.005 & 1000.A & 3003 & 1001 & 43.2 & 20.8 & 20.3 &  6006 & 230 & 5546 & 0 & 0 & 6268 & 366 & 37 & 181 \\
+& 1500.A & 4503 & 1501 & 86.7 & 41.4 & 40.8 &  8563 & 266 & 8031 & 0 & 0 & 8784 & 392 & 43 & 193 \\
+& 2000.A & 6003 & 2001 & 151.3 & 72.2 & 71.1 &  11038 & 299 & 10440 & 0 & 0 & 11216 & 404 & 39 & 200 \\
+& 5000.A & 15003 & 5001 & 836.2 & 402.1 & 386.8 &  25988 & 449 & 25090 & 0 & 0 & 25969 & 428 & 39 & 212 \\
+& 7500.A & 22502 & 7501 & 1824.5 & 882.5 & 838.0 &  38350 & 586 & 37178 & 0 & 0 & 38041 & 434 & 45 & 208 \\
+& 10000.A & 30002 & 10001 & 3100.2 & 1504.2 & 1416.8 &  50711 & 704 & 49303 & 0 & 0 & 50286 & 436 & 52 & 216 \\
+\hline
+
+\textsc{SPureLex-PWL}-0.005 & 1000.A & 3003 & 1001 & 46.6 & 22.7 & 21.4 &  5087 & 230 & 4627 & 0 & 0 & 6268 & 366 & 37 & 181 \\
+& 1500.A & 4503 & 1501 & 92.2 & 44.9 & 42.2 &  7174 & 266 & 6642 & 0 & 0 & 8784 & 392 & 43 & 193 \\
+& 2000.A & 6003 & 2001 & 152.3 & 74.4 & 69.1 &  9197 & 299 & 8599 & 0 & 0 & 11216 & 404 & 39 & 200 \\
+& 5000.A & 15003 & 5001 & 841.9 & 413.4 & 376.3 &  21300 & 449 & 20402 & 0 & 0 & 25969 & 428 & 39 & 212 \\
+& 7500.A & 22502 & 7501 & 1876.8 & 923.9 & 835.5 &  31322 & 586 & 30150 & 0 & 0 & 38041 & 434 & 45 & 208 \\
+ & 10000.A & 30002 & 10001 & 3206.9 & 1583.1 & 1421.9 &  41319 & 704 & 39911 & 0 & 0 & 50286 & 436 & 52 & 216 \\
+\hline
+
+		\noalign{\smallskip}
+        \lasthline
+        
+	\end{tabular}
+	
+	\caption{Reults for Bent intances}
+\end{table}
+
+\end{document}
+
+
+
